@@ -1,0 +1,259 @@
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f7fbfb;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        /* Header trang chứa Logo và Tên Shop */
+        header.main-header {
+            background-color: #a3d2ca;
+            padding: 15px 40px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        header.main-header img {
+            border-radius: 6px;
+            object-fit: cover;
+        }
+
+        header.main-header h1 {
+            margin: 0;
+            font-size: 26px;
+            color: #056676;
+        }
+
+        /* Khung nội dung chính */
+        main {
+            max-width: 1100px;
+            margin: 25px auto;
+            padding: 0 20px;
+        }
+
+        main > h2 {
+            font-size: 22px;
+            color: #2b2b2b;
+            margin-bottom: 20px;
+        }
+
+        /* Bố cục sản phẩm chính & Aside */
+        .product-container {
+            display: grid;
+            grid-template-columns: 2.2fr 1fr;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .product-main {
+            display: flex;
+            gap: 25px;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .product-image-box {
+            border: 1px solid #ccc;
+            border-radius: 12px;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+        }
+
+        .product-image-box img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .product-details {
+            flex: 1;
+        }
+
+        .product-details h3 {
+            margin-top: 0;
+            font-size: 22px;
+            color: #111;
+        }
+
+        .product-details p {
+            font-size: 13.5px;
+            line-height: 1.6;
+            color: #555;
+            text-align: justify;
+        }
+
+        /* Định dạng Bảng thông số kỹ thuật */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            font-size: 13.5px;
+            background-color: #fff;
+        }
+
+        caption {
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 8px;
+            text-align: center;
+            color: #333;
+        }
+
+        thead {
+            background-color: #b5e2fa;
+        }
+
+        th, td {
+            padding: 8px 12px;
+            border: 1px solid #d0e4f0;
+            text-align: left;
+        }
+
+        th[scope="col"] {
+            color: #004e89;
+            font-weight: bold;
+        }
+
+        th[scope="row"] {
+            background-color: #f4f9fc;
+            font-weight: normal;
+            color: #444;
+            width: 35%;
+        }
+
+        /* Aside - Chính sách mua hàng */
+        aside.policy-box {
+            background-color: #ffffff;
+            border: 1px solid #a3d2ca;
+            border-radius: 12px;
+            padding: 20px;
+            height: fit-content;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        aside.policy-box h3 {
+            margin-top: 0;
+            font-size: 16px;
+            color: #056676;
+            border-bottom: 2px solid #a3d2ca;
+            padding-bottom: 8px;
+        }
+
+        aside.policy-box ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 15px 0 0 0;
+        }
+
+        aside.policy-box ul li {
+            font-size: 13.5px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #444;
+        }
+
+        /* Phần Sản phẩm tương tự */
+        .related-products {
+            margin-top: 40px;
+        }
+
+        .related-products h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .related-products ol {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+        }
+
+        .related-products ol li {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .related-products ol li img {
+            border-radius: 6px;
+            object-fit: cover;
+        }
+
+        .related-info {
+            font-size: 13px;
+        }
+
+        .related-info strong {
+            display: block;
+            color: #222;
+        }
+
+        .related-info span {
+            color: #d90429;
+            font-weight: bold;
+        }
+
+        /* Footer trang */
+        footer.main-footer {
+            background-color: #056676;
+            color: #ffffff;
+            padding: 20px;
+            margin-top: 40px;
+            font-size: 13px;
+        }
+
+        footer.main-footer address {
+            font-style: normal;
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        footer.main-footer address a {
+            color: #e0f2f1;
+            text-decoration: none;
+        }
+
+        footer.main-footer .copyright {
+            text-align: center;
+            margin-top: 15px;
+            padding-top: 10px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            font-size: 12px;
+            color: #b2dfdb;
+        }
+
+        @media (max-width: 768px) {
+            .product-container {
+                grid-template-columns: 1fr;
+            }
+            .product-main {
+                flex-direction: column;
+            }
+        }
+    </style>

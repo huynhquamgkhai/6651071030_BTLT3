@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopVN - Đăng ký tài khoản</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <section>
+            <h2>Đăng ký tài khoản mới</h2>
+            
+            <form action="xu_ly_dangky.php" method="POST" enctype="multipart/form-data" name="formDangKy" id="formDangKy">
+                
+                <fieldset>
+                    <legend>Thông tin cơ bản</legend>
+                    
+                    <div class="form-group">
+                        <label for="hoten">Họ và tên:</label>
+                        <input type="text" name="hoten" id="hoten" required maxlength="100">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" name="email" id="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="matkhau">Mật khẩu:</label>
+                        <input type="password" name="matkhau" id="matkhau" minlength="8" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="sdt">Số điện thoại:</label>
+                        <input type="tel" name="sdt" id="sdt" pattern="[0-9]{10}">
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Thông tin cá nhân</legend>
+                    
+                    <div class="form-group">
+                        <label for="tuoi">Tuổi:</label>
+                        <input type="number" name="tuoi" id="tuoi" min="16" max="99" step="1">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="ngaysinh">Ngày sinh:</label>
+                        <input type="date" name="ngaysinh" id="ngaysinh" min="1950-01-01" max="2010-12-31">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Giới tính:</label>
+                        <div class="inline-options">
+                            <input type="radio" name="gioitinh" id="gt_nam" value="nam">
+                            <label for="gt_nam">Nam</label>
+                            
+                            <input type="radio" name="gioitinh" id="gt_nu" value="nu">
+                            <label for="gt_nu">Nữ</label>
+                            
+                            <input type="radio" name="gioitinh" id="gt_khac" value="khac">
+                            <label for="gt_khac">Khác</label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mauua">Màu yêu thích:</label>
+                        <input type="color" name="mauua" id="mauua">
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Sở thích & Cài đặt</legend>
+                    
+                    <div class="form-group">
+                        <label for="soikim">Tìm kiếm sở thích:</label>
+                        <input type="search" name="soikim" id="soikim">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="chitieu">Mức chi tiêu/tháng (VNĐ):</label>
+                        <div class="range-container">
+                            <output id="giatri_chitieu">0 VNĐ</output>
+                            <input type="range" name="chitieu" id="chitieu" min="0" max="50000000" step="500000" value="0" oninput="capNhatChiTieu(this.value)">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Sở thích (chọn nhiều):</label>
+                        <div class="inline-options">
+                            <input type="checkbox" name="st_docsinh" id="st_doc" value="doc">
+                            <label for="st_doc">Đọc sách</label>
+                            
+                            <input type="checkbox" name="st_game" id="st_game" value="game">
+                            <label for="st_game">Chơi game</label>
+                            
+                            <input type="checkbox" name="st_du_lich" id="st_dulich" value="dulich">
+                            <label for="st_dulich">Du lịch</label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="website">Website cá nhân:</label>
+                        <input type="url" name="website" id="website">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="avatar">Ảnh đại diện:</label>
+                        <input type="file" name="avatar" id="avatar" accept="image/png, image/jpeg">
+                    </div>
+                </fieldset>
+
+                <div class="form-actions">
+                    <input type="submit" value="Đăng ký ngay">
+                    <input type="reset" value="Nhập lại" onclick="setTimeout(() => capNhatChiTieu(document.getElementById('chitieu').value), 10)">
+                </div>
+
+            </form>
+        </section>
+    </main>
+
+    <script>
+        function capNhatChiTieu(val) {
+            document.getElementById('giatri_chitieu').value = Number(val).toLocaleString('vi-VN') + ' VNĐ';
+        }
+    </script>
+</body>
+</html>
